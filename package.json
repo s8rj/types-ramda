@@ -53,7 +53,8 @@
     "clean": "rimraf es ts4",
     "lint": "eslint . --max-warnings=0",
     "test": "tsd",
-    "typecheck": "tsc -p tsconfig.types.json --noEmit"
+    "typecheck": "tsc -p tsconfig.types.json --noEmit",
+    "watch": "npm run build:types; while inotifywait -e close_write types/; do npm run build:types; done"
   },
   "tsd": {
     "directory": "test/"
